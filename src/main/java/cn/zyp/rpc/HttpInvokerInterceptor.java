@@ -10,6 +10,7 @@ import java.net.URL;
 
 public class HttpInvokerInterceptor implements MethodInterceptor, InitializingBean {
 
+    //服务的url
     protected String url;
 
     public Object invoke(MethodInvocation methodInvocation) throws Throwable {

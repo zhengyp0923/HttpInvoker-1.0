@@ -10,16 +10,18 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.lang.reflect.Method;
 
+/**
+ * HttpRequestHandler
+ */
 public class HttpInvokerServiceExporter implements HttpRequestHandler {
-        private Object target;
-        private Class<?> classz;
-
+    private Object target;
+    private Class<?> classz;
 
     public void handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws ServletException, IOException {
         ObjectInputStream objectInputStream = new ObjectInputStream(httpServletRequest.getInputStream());
         try {
             RemoteInvocation remoteInvocation = (RemoteInvocation) objectInputStream.readObject();
-            System.out.println(remoteInvocation.getMethodName()+"--"+remoteInvocation.getArguments());
+            System.out.println(remoteInvocation.getMethodName() + "--" + remoteInvocation.getArguments());
             Method method = target.getClass().getInterfaces()[0].getMethod(remoteInvocation.getMethodName(), remoteInvocation.getParameterTypes());
             if (method == null) {
                 throw new RuntimeException("not support this method");

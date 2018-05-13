@@ -15,6 +15,10 @@ public class HttpInvokerProxyFactoryBean extends HttpInvokerInterceptor implemen
         this.url=url;
     }
 
+    /**
+     * 创建service的代理对象
+     * @throws Exception
+     */
     @Override
     public void afterPropertiesSet() throws Exception {
         super.afterPropertiesSet();

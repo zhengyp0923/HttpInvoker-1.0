@@ -4,6 +4,9 @@ import org.aopalliance.intercept.MethodInvocation;
 
 import java.io.Serializable;
 
+/**
+ * 将调用方法的信息封装成RemoteInvocation
+ */
 public class RemoteInvocation implements Serializable{
     private String methodName;
     private Object[] arguments;
